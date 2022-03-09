@@ -1,3 +1,8 @@
 {
-  "nuxt.isNuxtApp": false
+  "nuxt.isNuxtApp": false,
+  "dart.flutterSdkPath": "C:\\flutter_sdk\\flutter",
+  "cSpell.words": [
+    "LTRB",
+    "Sconds"
+  ]
 }

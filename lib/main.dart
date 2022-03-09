@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo1/routers/routers.dart';
+import 'package:flutter_demo1/views/Home/Home.dart';
 // import 'package:provider/provider.dart';
 
 void main() {
@@ -18,12 +19,14 @@ class CntYard extends StatelessWidget {
       locale: const Locale('zh'),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.blue),
+      routes: routers,
+      initialRoute: '/login',
+      // onGenerateInitialRoutes: ,
+      // onGenerateRoute: ,
       // supportedLocales: const [
       //   Locale('zh', 'CN'),
       //   Locale('en', 'US'),
       // ],
-      routes: routers,
-      initialRoute: '/',
     );
   }
 }

@@ -24,4 +24,23 @@ class Tips {
               ],
             ));
   }
+
+  alertTip(context, alertMsg) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context0) => AlertDialog(
+              title: const Text('提示'),
+              content: Text(alertMsg,
+                  style: TextStyle(
+                      color: alertMsg == "保存成功！" ? Colors.green : Colors.red)),
+              actions: <Widget>[
+                TextButton(
+                  child: const Text("确定"),
+                  onPressed: () {
+                    Navigator.of(context0).pop();
+                  },
+                ),
+              ],
+            ));
+  }
 }
