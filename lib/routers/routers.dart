@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo1/views/Home/Home.dart';
 import 'package:flutter_demo1/views/Home/Login.dart';
-import '../views/Home/Home.dart';
+import 'package:flutter_demo1/views/Home/TextLogin.dart';
 
 Map<String, WidgetBuilder> routers = {
   '/': (BuildContext context) => const Home(),
-  '/login': (BuildContext context) => const Login()
+  '/login': (BuildContext context) => const TextLogin()
 };
 
 typedef NestedRouteBuilder = Widget Function(Widget? child);

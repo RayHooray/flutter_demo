@@ -44,9 +44,16 @@ class _LoginState extends State<Login> {
     }
   }
 
-  _switchLoginType() {}
+  _switchLoginType() {
+    setState(() {
+      isCodeLogin = true;
+    });
+  }
 
-  _login() {}
+  _login() {
+    print(_userInput.text);
+    print(_pwdInput.text);
+  }
 
   _locationBar() {}
 
@@ -72,15 +79,15 @@ class _LoginState extends State<Login> {
               padding: const EdgeInsets.all(30.0),
               child: Center(
                   child: Card(
-                child: Image.asset('./assets/images/avatar.png',
-                    width: MediaQuery.of(context).size.width * 0.77,
-                    height: MediaQuery.of(context).size.height * 0.3),
+                child: Image.asset('./images/avatar.png',
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height * 0.29),
               )),
             ),
             Offstage(
-              offstage: isCodeLogin,
+              offstage: !isCodeLogin,
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(20, 15, 20, 30),
+                padding: const EdgeInsets.fromLTRB(40, 20, 40, 60),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -138,9 +145,9 @@ class _LoginState extends State<Login> {
               ),
             ),
             Offstage(
-              offstage: !isCodeLogin,
+              offstage: isCodeLogin,
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(20, 15, 20, 30),
+                padding: const EdgeInsets.fromLTRB(40, 20, 40, 60),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -174,26 +181,24 @@ class _LoginState extends State<Login> {
                             ),
                           ),
                         ),
-                        Container(
-                          child: FlatButton(
-                              onPressed: _sendMsg,
-                              textColor: Colors.white,
-                              color: _timerColor(),
-                              child: Row(children: [
-                                Offstage(
-                                  offstage: isTimer,
-                                  child: const Text(
-                                    '点击发送',
-                                  ),
+                        TextButton(
+                            onPressed: _sendMsg,
+                            // textColor: Colors.white,
+                            // child: _timerColor(),
+                            child: Row(children: [
+                              Offstage(
+                                offstage: isTimer,
+                                child: const Text(
+                                  '点击发送',
                                 ),
-                                Offstage(
-                                  offstage: !isTimer,
-                                  child: Text(
-                                    msgSconds.toString() + ' s',
-                                  ),
+                              ),
+                              Offstage(
+                                offstage: !isTimer,
+                                child: Text(
+                                  msgSconds.toString() + ' s',
                                 ),
-                              ])),
-                        )
+                              ),
+                            ]))
                       ],
                     ),
                     Container(
@@ -220,7 +225,7 @@ class _LoginState extends State<Login> {
               ),
             ),
             Container(
-              padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+              padding: const EdgeInsets.fromLTRB(40, 20, 40, 60),
               width: MediaQuery.of(context).size.width * 0.9,
               child: Card(
                 color: Colors.blue,
