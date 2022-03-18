@@ -19,7 +19,7 @@ class CntYard extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.blue),
       routes: routers,
-      initialRoute: '/login',
+      initialRoute: '/',
       // onGenerateInitialRoutes: ,
       // onGenerateRoute: ,
       // supportedLocales: const [

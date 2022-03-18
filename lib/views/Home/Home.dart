@@ -1,6 +1,9 @@
 // ignore: file_names
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_demo1/views/Home/Banding.dart';
+import 'package:flutter_demo1/views/Home/MainPage.dart';
+import 'package:flutter_demo1/views/Home/UserInfo.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -14,7 +17,29 @@ class Home extends StatefulWidget {
 class _Home extends State<Home> {
   int bottomIndex = 0;
   String text = "";
-  dynamic showPage;
+  Widget _showPage = const MainPage();
+
+  get showpage => _showPage;
+
+  void _shiftPage(index) async {
+    setState(() {
+      bottomIndex = index;
+      switch (index) {
+        case 0:
+          text = '首页';
+          _showPage = const MainPage();
+          break;
+        case 1:
+          text = '堆场';
+          _showPage = const Banding();
+          break;
+        case 2:
+          text = '设置';
+          _showPage = const UserInfo();
+          break;
+      }
+    });
+  }
 
   @override
   void initState() {
@@ -25,7 +50,7 @@ class _Home extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text(text),
+      body: showpage,
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -51,20 +76,7 @@ class _Home extends State<Home> {
         type: BottomNavigationBarType.fixed,
         currentIndex: bottomIndex,
         onTap: (int index) {
-          setState(() {
-            bottomIndex = index;
-            switch (index) {
-              case 0:
-                text = '首页';
-                break;
-              case 1:
-                text = '堆场';
-                break;
-              case 2:
-                text = '设置';
-                break;
-            }
-          });
+          _shiftPage(index);
         },
       ),
     );
