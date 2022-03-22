@@ -22,7 +22,7 @@ class _UserInfo extends State<UserInfo> {
           decoration: const BoxDecoration(
             color: Colors.blue,
             image: DecorationImage(
-              image: ExactAssetImage('assets/images/itemBg.png'),
+              image: ExactAssetImage('./assets/images/itemBg.png'),
               fit: BoxFit.cover,
             ),
           ),
